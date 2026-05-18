@@ -1,18 +1,24 @@
 package GUI.Map;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 
-import GUI.Application.*;
-import Routing.Engine.RoutingEngine;
 import org.jxmapviewer.JXMapViewer;
 import org.jxmapviewer.OSMTileFactoryInfo;
 import org.jxmapviewer.input.PanMouseInputListener;
 import org.jxmapviewer.input.ZoomMouseWheelListenerCenter;
 import org.jxmapviewer.painter.CompoundPainter;
-import org.jxmapviewer.viewer.*;
+import org.jxmapviewer.viewer.DefaultTileFactory;
+import org.jxmapviewer.viewer.GeoPosition;
+import org.jxmapviewer.viewer.TileFactoryInfo;
 
+import GUI.Application.HeatMapLegend;
+import GUI.Application.MapAction;
+import GUI.Application.MapMouse;
+import Routing.Engine.RoutingEngine;
 import Utils.Location.Location;
 
 public class MapCreator {
@@ -31,7 +37,7 @@ public class MapCreator {
         createSideControls(engine);
 
         TileFactoryInfo info = new OSMTileFactoryInfo(
-                "osm", "jar:file:data/tiles/luxembourg_map_tiles.zip!"
+                "osm", "jar:file:data/tiles/map_tiles.zip!"
         );
         mapViewer.setTileFactory(new DefaultTileFactory(info));
 

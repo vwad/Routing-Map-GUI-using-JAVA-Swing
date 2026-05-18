@@ -124,21 +124,44 @@ If successful, you can input following the manual formatting.
 Open [Routing Engine](src/main/java/Routing/Engine/RoutingEngine.java).  
 Run main method of the class.
 
-## Luxembourg Map
+## Map
 This paragraph will explain how to run the map.
 ### How to run it
-Open the [Transit Map](src/main/java/GUI/Application/TransitMap.java) class and run main of it.  
+
+
+#### First way
+You have to run a command:
+```bash
+    mvn compile
+```
+To compile the project and then, you can run transit map by executing:
+```bash
+    mvn exec:java -Dexec.mainClass="GUI.Application.TransitMap"
+```
+If successful, you can input following the manual formatting.
+#### Second way
+Open [Transit Map](src/main/java/GUI/Application/TransitMap.java). 
+Run main method of the class.
+
 #### Route
-To display route we currently don't have a way to input specific points.
-We only display it visually for now.  
 The order of operations to display routes:
 * Press 'Plan Route' button.
 * Specify time and date.
 * Add or remove travels via clicking on the map or adding points manually
-Currently, it doesn't display information about the trip. Later will be added.
+
 #### Heat Map
-To display heatmap we currently only highlight stops we arrive at specific time.  
 To display heatmap:
 * Press 'Display Heat Map' button.
 * Specify time and date.
 * Select start a point on the map from which you want to display heatmap.
+
+### Tiles
+
+In order for Tiles to render you have to upload the OSM Tiles manually. You have to place it in data/tiles folder and name it map_tiles.zip.
+In order for Location to actually render you have to create a class extending class Location/City/Country in this [module](src/main/java/Utils/Location). You have to define boundary yourself and then change the location in [CurrentLocation.java](src/main/java/Utils/Location/CurrentLocation.java). If not, feel free to use [Global](src/main/java/Utils/Location/Global.java), but it wasn't designed to work with it and just a potential usage.
+
+Future improvement could be to make this more config friendly.
+
+### Questions
+
+If the issues arrive feel free to reach out and I can explain. A lot more details that I am not sure if legally can copy here.
